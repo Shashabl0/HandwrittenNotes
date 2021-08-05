@@ -1,0 +1,11 @@
+select *from employee JOIN dept1 ON employee.deptno = dept1.deptno;
+select ename from employee where deptno = (select deptno from dept1 where loc='CHENNAI') ORDER by ENAME;
+new
+ab bhj rhe
+select ename from employee where deptno = (select deptno from dept1 where loc='CHENNAI') ORDER by ENAME;
+*********************
+select ename from employee where deptno = (select deptno from dept1 where loc='CHENNAI') ORDER by ENAME;
+select E.ename from employee E,dept1 D where E.deptno = D.deptno AND D.loc not like 'CHENNAI' ORDER by E.ENAME;
+select ename from employee where sal in (select max(sal) from employee);
+select ename from employee where sal > (select AVG(sal) from employee);
+select d.dname from dept1 d,employee e where d.deptno=e.deptno AND e.sal > 20000;
