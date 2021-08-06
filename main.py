@@ -11,7 +11,7 @@ sheetwidth,sheetheight = blank_sheet.size
 MARGIN = 300
 FIXED_HEIGHT = 70                  # set height of img here
 sheet = 1
-Chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?.!,()[]:- '
+Chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?.!,()[]:-=\'" ;'
 
 
 #print(blank_sheet.size)
@@ -70,7 +70,7 @@ def writeword(word):
         new_blank_sheet = new_sheet
         sheet+=1
 
-    specialCharacters = {'!':'exclamation','?':'question',',':'comma','.':'fullstop',':':'colon','(':'braketopen', ')':'braketclose','-':'hiphen','[':'squareopen',']':'squareclose'}
+    specialCharacters = {'!':'exclamation','?':'question',',':'comma','.':'fullstop',':':'colon','(':'braketopen', ')':'braketclose','-':'hiphen','[':'squareopen',']':'squareclose','=':'equal','\'':'apostrophe','"':'qoute',';':'semicolon'}
     for letter in word:
         if letter in Chars:
             if letter.islower():
