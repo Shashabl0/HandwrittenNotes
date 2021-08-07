@@ -1,11 +1,27 @@
-select *from employee JOIN dept1 ON employee.deptno = dept1.deptno;
-select ename from employee where deptno = (select deptno from dept1 where loc='CHENNAI') ORDER by ENAME;
-new
-ab bhj rhe
-select ename from employee where deptno = (select deptno from dept1 where loc='CHENNAI') ORDER by ENAME;
-*********************
-select ename from employee where deptno = (select deptno from dept1 where loc='CHENNAI') ORDER by ENAME;
-select E.ename from employee E,dept1 D where E.deptno = D.deptno AND D.loc not like 'CHENNAI' ORDER by E.ENAME;
-select ename from employee where sal in (select max(sal) from employee);
-select ename from employee where sal > (select AVG(sal) from employee);
-select d.dname from dept1 d,employee e where d.deptno=e.deptno AND e.sal > 20000;
+
+Name: Shashank Barnwal
+Dept.: Information Technology
+RollNo: 13000218037
+Subject: DBMS
+
+                        LAB ASSIGNMENT
+                      ----------------------
+Packet filtering 
+
+Types of packet Filtering 
+[1] Static packet filtering firewall: In this type of firewall rules are established manually, and the connection between the internal and external networks left open or closed at all times until changed manually.
+[2] Dynamic packet filtering firewall: This type of firewall is a more intelligent way of filtering as rules may be changed dynamically depending upon the conditions, and ports are open only for a specific time otherwise remains closed.
+[3] Stateful packet filtering firewall: It uses a pre-set table for maintaining a secure connection, and packets pass through in a sequence as approved by the filter rules.
+
+Advantages and disadvantages of Packet filtering 
+Advantages
+[1] Need only one router: The key advantage of using packet filtering is that it requires the use of only one screening router to protect an entire network. 
+[2] Highly efficient and fast: The packet filtering router works very fast and effectively and accepts and rejects the packets quickly based upon the destination and source ports and addresses. However, other firewall techniques show more time-consuming performance.
+[3] Transparent to users: Packet filtering works independently without any need for user knowledge or cooperation. Users won’t get to know about the transmission of packets until there is something that got rejected. On the contrary, other firewalls require custom software, the configuration of client machines, or specific training or procedures for users.
+[4] Built-in packet filtering in routers: Packet filtering capacities are inbuilt in widely used hardware and software routing products. Additionally, now most websites possess packet filtering techniques available in their routers itself, which also makes this technique the most inexpensive one. 
+Disadvantages
+[5] Filtration based on IP address or Port Information: The biggest disadvantage of packet filtering is that it works on the authentication of IP address and port number and not based on the information like context or application.
+[6] Packet filtering is stateless: Another big disadvantage of packet filtering is that it does not remember any past invasions or filtered packets. It tests every packet in isolation and is stateless which allows hackers to break the firewall easily. 
+[7] No safety from address spoofing: The packet filtering does not protect from IP spoofing, in which hackers can insert fake IP addresses in packets to intrude the network.
+[8] Not a perfect option for all networks: The packet filtering firewalls implementation in highly desirable filters becomes difficult or highly time-consuming. Managing and configuring ACLs sometimes get difficult.
+

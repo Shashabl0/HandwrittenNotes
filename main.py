@@ -54,7 +54,7 @@ def opensheet():
 def writeword(word):
     global bspace,nwline
     
-    if bspace > (sheetwidth - 80*len(word)):#- MARGIN):   # margin here
+    if bspace > (sheetwidth - 75*len(word)):#- MARGIN):   # margin here
         #print('newline incoming')
         bspace = MARGIN
         nwline += FIXED_HEIGHT
