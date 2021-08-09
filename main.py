@@ -1,45 +1,43 @@
 # purpose of this program is to 
 from PIL import Image
 import os
-import nltk
 
 blank_sheet = Image.open('blank_page.jpg')
 new_blank_sheet = ''
 
-sheetwidth,sheetheight = blank_sheet.size
+sheetwidth,sheetheight = blank_sheet.size   # store blank sheet size
 
-MARGIN = 300
+MARGIN = 300                       # set Top and buttom Margin
 FIXED_HEIGHT = 70                  # set height of img here
-sheet = 1
+sheet = 1                          # Sheet start number
 Chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?.!,()[]:-=\'" ;'
 
 
 #print(blank_sheet.size)
 # it is 3300,2550
-bspace,nwline = 0,0
+bspace,nwline = 0,0                # bspace is space from left of a page, nwline is height of the font used here, so that font img doesnt overlap
 def set_FIXED_HEIGHT(x):
-    global FIXED_HEIGHT
-    # try at ~70 pixels then check what suits 
+    global FIXED_HEIGHT            # try at ~70 pixels then check what suits 
     FIXED_HEIGHT = x
 
-def resetpage():
+def resetpage():                   # reseting page to default spacing and margins, basically will use when writing in new page
     global bspace,nwline
     bspace,nwline = MARGIN,FIXED_HEIGHT*4
     
-def width_size( width, height_per):
+def width_size( width, height_per):     # img resize will use in future to mess with font sizes *evil smile*
     return int((float(width) * float(height_per)))
 
-def writetopage(letter):
+def writetopage(letter):            # writing to page 
     global bspace,nwline,new_blank_sheet
     try:
-        img = Image.open('fonts/'+letter+'.jpg')
+        img = Image.open('fonts/'+letter+'.jpg')    # try writing to page if img open fails, then it print newline with discription of why newline
         height_percent = (FIXED_HEIGHT / float(img.size[1]))
         img = img.resize((width_size(img.size[0],height_per=height_percent), FIXED_HEIGHT), Image.NEAREST)
         
         new_blank_sheet.paste(img,(bspace,nwline))
         bspace += img.width
     except:
-        print('newline 2 incoming via letter '+str(letter))
+        print('newline incoming :  '+str(letter))
         letter = ''
         nwline +=FIXED_HEIGHT
         bspace = MARGIN
@@ -54,8 +52,8 @@ def opensheet():
 def writeword(word):
     global bspace,nwline
     
-    if bspace > (sheetwidth - 75*len(word)):#- MARGIN):   # margin here
-        #print('newline incoming')
+    if bspace > (sheetwidth - 75*len(word)):#- MARGIN):   # need more work here 
+        #print('newline : word overflowing width of page')
         bspace = MARGIN
         nwline += FIXED_HEIGHT
 
@@ -92,16 +90,13 @@ if __name__ == "__main__":
     
        
     sentences = data.split('\n')
-    # print(sentences)
-    
+
     resetpage()
     opensheet()
     
     for sentence in sentences:
         words = sentence.split(' ')
-        #print(words)
         for word in words:
-            #print(word)
             writeword(word)
             writetopage('space')
     
