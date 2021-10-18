@@ -1,3 +1,17 @@
-today i changed my laptop's battery 9031714369
-7209990025
-9546554625
+1. Introduction
+a. Purpose
+This Document is meant to delineate the features of LMS, so as to serve as a guide to the developers on one hand and a software validation document for the prospective client on the other. The Library Management System (LMS), a web application to manage the details of the books in Library and for the library user using the internet. It will enable the library staff to better monitor the books issued using computer and provide reports.
+b. Scope
+This System will allow the library Staff and Users to monitor the booked issued/returned over the Internet.
+c. Definitions & abbreviations
+i. JAVA- platform independence
+ii. SQL- Structured query Language
+iii. DFD-dataflow diagram
+iv. ER-entity relationship
+v. SD-Sequence Diagram
+vi. LMS – Library management System
+vii. SRS- Software Requirement Specification
+viii. GUI Graphic user Interface
+ix. Stockholder- people participating in System ex Admin, staff, students
+2. General Description
+The planned LMS will take care of the new books at any moment. Books issues and returned would immediately update the new book information so that any user will have the latest book.
